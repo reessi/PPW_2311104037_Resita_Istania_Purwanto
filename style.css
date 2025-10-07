@@ -1,0 +1,112 @@
+/* style.css (Palet Biru Muda dan Pink Muda) */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #f0f0f0;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* HEADER - Biru tua tetap */
+#header {
+    float: left;
+    width: 100%;
+    background: #16128a; 
+    height: 100px;
+    text-align: center; 
+    color: #ffff;
+    line-height: 100px; 
+    font-size: 24px;
+}
+
+/* MENU - Ungu gelap tetap */
+#menu {
+    float: left;
+    width: 100%;
+    background: #5854bf; 
+    height: auto;
+    text-align: right; 
+    padding: 10px 0;
+}
+
+#menu a {
+    color: #ffff;
+    text-decoration: none;
+    margin-right: 20px;
+    font-weight: bold;
+}
+
+/* FOOTER - Abu-abu muda */
+#footer {
+    float: left;
+    width: 100%;
+    background: #cccccc; 
+    min-height: 80px;
+    text-align: center;
+    line-height: 80px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* --- TATA LETAK UTAMA (GAMBAR 1) --- */
+
+#l-side { /* Populer - Pink Muda */
+    float: left;
+    width: 20%; 
+    background: #f7c5e5; 
+    min-height: 400px;
+    box-sizing: border-box; 
+    padding: 10px;
+}
+
+#content { /* Konten Dinamis - Biru Muda */
+    float: left;
+    width: 60%; 
+    background: #e6f2ff; 
+    min-height: 400px;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+#r-side { /* Iklan - Pink Muda */
+    float: left;
+    width: 20%; 
+    background: #f7c5e5;
+    min-height: 400px;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+/* --- TATA LETAK ADMIN (GAMBAR 2) --- */
+
+.admin-layout #admin-menu { /* Menu Admin - Pink Muda */
+    float: left;
+    width: 25%;
+    background: #f7c5e5;
+    min-height: 400px;
+    box-sizing: border-box;
+    padding: 20px 10px;
+}
+.admin-layout #admin-menu a {
+    display: block;
+    color: #333; 
+    text-decoration: none;
+    padding: 5px 0;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #e0b0d0; /* Garis pemisah pink yang lebih gelap */
+}
+
+.admin-layout #content {
+    width: 75%; 
+    background: #e6f2ff; /* Biru Muda */
+}
+
+.admin-layout #r-side {
+    display: none;
+}
