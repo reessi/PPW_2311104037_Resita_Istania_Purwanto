@@ -1,5 +1,3 @@
-/* style.css (Palet Biru Muda dan Pink Muda) */
-
 body {
     margin: 0;
     padding: 0;
@@ -7,106 +5,227 @@ body {
     background-color: #f0f0f0;
 }
 
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-
-/* HEADER - Biru tua tetap */
-#header {
-    float: left;
-    width: 100%;
-    background: #16128a; 
-    height: 100px;
-    text-align: center; 
-    color: #ffff;
-    line-height: 100px; 
-    font-size: 24px;
-}
-
-/* MENU - Ungu gelap tetap */
-#menu {
-    float: left;
-    width: 100%;
-    background: #5854bf; 
+/* KONTROL GLOBAL GAMBAR */
+img {
+    max-width: 100%;
     height: auto;
-    text-align: right; 
-    padding: 10px 0;
+}
+
+/* Menggunakan Flexbox untuk tata letak utama dan centering */
+.clearfix {
+    display: flex;
+    flex-wrap: wrap; 
+    width: 90%; 
+    margin: 10px auto; 
+    background: #ffffff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* HEADER */
+#header {
+    width: 100%;
+    background: #9966cc; /* UNGU */
+    height: 100px;
+    color: #ffff;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    position: relative; 
+    box-sizing: border-box;
+}
+.shop-name {
+    margin: 0;
+    font-size: 36px;
+}
+
+/* MENU */
+#menu {
+    position: absolute;
+    right: 20px;
+    top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 #menu a {
     color: #ffff;
     text-decoration: none;
-    margin-right: 20px;
+    margin-left: 20px;
     font-weight: bold;
+    font-size: 16px;
 }
 
-/* FOOTER - Abu-abu muda */
-#footer {
-    float: left;
-    width: 100%;
-    background: #cccccc; 
-    min-height: 80px;
-    text-align: center;
-    line-height: 80px;
-    font-weight: bold;
-    color: #333;
-}
 
-/* --- TATA LETAK UTAMA (GAMBAR 1) --- */
+/* --- TATA LETAK KOLOM UTAMA --- */
 
-#l-side { /* Populer - Pink Muda */
-    float: left;
-    width: 20%; 
-    background: #f7c5e5; 
-    min-height: 400px;
-    box-sizing: border-box; 
-    padding: 10px;
-}
+#l-side { width: 0; overflow: hidden; }
 
-#content { /* Konten Dinamis - Biru Muda */
-    float: left;
-    width: 60%; 
-    background: #e6f2ff; 
+/* Kolom Tengah (Content) - 75% di Desktop */
+#content { 
+    flex: 3; 
     min-height: 400px;
     box-sizing: border-box;
-    padding: 10px;
+    padding: 10px; 
 }
 
-#r-side { /* Iklan - Pink Muda */
-    float: left;
-    width: 20%; 
-    background: #f7c5e5;
-    min-height: 400px;
-    box-sizing: border-box;
-    padding: 10px;
-}
-
-/* --- TATA LETAK ADMIN (GAMBAR 2) --- */
-
-.admin-layout #admin-menu { /* Menu Admin - Pink Muda */
-    float: left;
-    width: 25%;
-    background: #f7c5e5;
+/* Kolom Kanan (R-side) - 25% di Desktop */
+#r-side { 
+    flex: 1; 
     min-height: 400px;
     box-sizing: border-box;
     padding: 20px 10px;
+    border-left: 1px solid #eee; 
 }
-.admin-layout #admin-menu a {
+#r-side h4 {
+    color: #333;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+
+/* ------------------------------------------------ */
+/* --- BANNER (CSS SLIDESHOW OTOMATIS) STYLES --- */
+/* ------------------------------------------------ */
+
+/* Durasi slide: 9 detik (3 slide x 3 detik per slide) */
+@keyframes slide-animation {
+    0% { margin-left: 0; }        /* Slide 1 muncul */
+    30% { margin-left: 0; }       /* Tahan Slide 1 */
+    33% { margin-left: -100%; }   /* Geser ke Slide 2 */
+    63% { margin-left: -100%; }   /* Tahan Slide 2 */
+    66% { margin-left: -200%; }   /* Geser ke Slide 3 */
+    96% { margin-left: -200%; }   /* Tahan Slide 3 */
+    100% { margin-left: 0; }      /* Kembali ke Slide 1 */
+}
+
+.banner {
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.slides {
+    width: 300%; 
+    display: flex;
+    /* PENTING: Terapkan animasi pergeseran otomatis di sini */
+    animation: slide-animation 9s infinite; 
+    transition: none;
+}
+
+.slide {
+    width: calc(100% / 3); 
+    flex-shrink: 0; 
+}
+
+.slide img {
+    width: 100%;
     display: block;
-    color: #333; 
-    text-decoration: none;
-    padding: 5px 0;
-    margin-bottom: 5px;
-    border-bottom: 1px solid #e0b0d0; /* Garis pemisah pink yang lebih gelap */
+    height: auto;
 }
 
-.admin-layout #content {
-    width: 75%; 
-    background: #e6f2ff; /* Biru Muda */
+/* --- PENATAAN PRODUK GRID --- */
+
+.product-grid { 
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-around; 
+    padding: 10px 0; 
+}
+.product-item { 
+    width: 23%; 
+    margin-bottom: 20px;
+    text-align: center; 
+    padding: 10px; 
+    box-sizing: border-box; 
+    border: 1px solid #ddd; 
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+.product-item p { margin: 5px 0; font-size: 14px; }
+.product-img { height: auto; display: block; margin-bottom: 5px; }
+
+/* Gaya Rekomendasi */
+.rekomendasi { text-align: center; border: 1px solid #cccccc; padding: 5px; margin-top: 10px; }
+.rekomendasi-img { width: 100%; height: auto; margin-bottom: 5px; }
+
+
+/* FOOTER */
+#footer {
+    width: 100%;
+    background: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid #ddd;
+}
+.footer-columns {
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+    justify-content: space-around;
+    padding-bottom: 10px;
+}
+.footer-columns div {
+    flex: 1; 
+    padding: 0 10px;
+    text-align: left;
+}
+.footer-columns h4 {
+    border-bottom: 1px solid #cccccc;
+    padding-bottom: 5px;
+    margin-top: 0;
+    font-size: 14px;
+}
+.footer-columns p {
+    font-size: 12px;
+    margin: 3px 0;
+    color: #666;
 }
 
-.admin-layout #r-side {
-    display: none;
+
+/* ----------------------------------------------- */
+/* ====== MEDIA QUERIES UNTUK RESPONSIVITAS ====== */
+/* ----------------------------------------------- */
+
+/* Tampilan Tablet (max-width: 900px) */
+@media screen and (max-width: 900px) {
+    
+    .clearfix { width: 95%; margin: 0 auto; }
+
+    /* Kolom Utama: Samping menjadi Susun (Stacking) */
+    #content { flex: 100%; order: 1; padding: 10px 20px; }
+    #r-side { flex: 100%; order: 2; border-left: none; border-top: 1px solid #eee; }
+
+    /* Grid Produk untuk Tablet (2 item per baris) */
+    .product-item { width: 48%; margin: 1%; }
+
+    /* Footer (2 kolom) */
+    .footer-columns { flex-wrap: wrap; }
+    .footer-columns div { width: 45%; margin-bottom: 15px; }
+
 }
+
+/* Tampilan Ponsel (max-width: 600px) */
+@media screen and (max-width: 600px) {
+    
+    .clearfix { width: 100%; margin: 0 auto; }
+
+    /* Header: Menu di bawah nama toko */
+    #header { height: auto; flex-direction: column; padding-bottom: 10px; }
+    .shop-name { line-height: 50px; font-size: 24px; }
+    #menu { position: static; height: auto; justify-content: center; width: 100%; padding-bottom: 10px; flex-wrap: wrap; }
+    #menu a { margin: 5px 8px; font-size: 14px; }
+
+    /* Grid Produk untuk Ponsel (1 item per baris) */
+    .product-item { width: 95%; margin: 10px auto; }
+
+    /* Footer (1 kolom, rata tengah) */
+    .footer-columns div { width: 90%; margin: 0 auto 10px auto; text-align: center; }
+    .footer-columns h4 { text-align: center; }
+}
+
+
+
+

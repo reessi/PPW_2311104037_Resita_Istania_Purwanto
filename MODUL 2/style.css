@@ -1,0 +1,268 @@
+/* ======================================= */
+/* 1. UMUM & RESET */
+/* ======================================= */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8; /* Warna background lebih terang */
+    color: #333;
+}
+
+/* ======================================= */
+/* 2. TOP BAR (HEADER & NAVIGASI KANAN) */
+/* ======================================= */
+.top-bar {
+    background-color: #5d3b6f; /* Ungu gelap */
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sedikit shadow */
+}
+
+.header-content {
+    max-width: 960px; /* Lebar konten utama */
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.shop-title {
+    color: white;
+    font-size: 24px;
+    margin: 0;
+    font-weight: bold;
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.main-nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    margin-left: 10px;
+    font-weight: normal;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    border-radius: 4px;
+}
+.main-nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    text-decoration: none;
+}
+
+/* ======================================= */
+/* 3. BATIK BANNER */
+/* ======================================= */
+.batik-banner {
+    padding: 30px 0;
+    background-color: #e0e0e0; /* Background area banner */
+}
+
+.batik-pattern-box {
+    width: 80%; /* Lebar box banner */
+    max-width: 900px; /* Maksimal lebar banner */
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    position: relative;
+    text-align: center;
+    overflow: hidden; /* Pastikan gambar background tidak melebihi kotak */
+    border-radius: 8px; /* Sudut membulat */
+    
+    /* PENTING: Path CSS harus sesuai dengan struktur folder Anda */
+    background-image: url('../assets/image/batik_pattern_bg.png'); 
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 250px; /* Tinggi minimum banner */
+    display: flex; /* Untuk memposisikan teks di tengah vertikal */
+    align-items: center; /* Posisikan teks vertikal di tengah */
+    justify-content: center; /* Posisikan teks horizontal di tengah */
+}
+
+.batik-text {
+    color: #5d3b6f; /* Warna teks sesuai header */
+    font-size: 36px;
+    font-weight: bolder; /* Lebih tebal */
+    background-color: rgba(255, 255, 255, 0.85); /* Background teks agak transparan */
+    padding: 10px 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    letter-spacing: 2px; /* Jarak antar huruf */
+    text-transform: uppercase;
+}
+
+/* ======================================= */
+/* 4. PRODUK GRID & REKOMENDASI */
+/* ======================================= */
+.product-container {
+    max-width: 960px; /* Lebar konten utama */
+    margin: 30px auto;
+    padding: 0 20px;
+    display: flex;
+    gap: 30px; /* Jarak antar bagian */
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 kolom */
+    gap: 20px; /* Jarak antar item grid */
+    flex-grow: 1; /* Memenuhi sisa ruang */
+}
+
+.product-item {
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.product-item img {
+    width: 100%;
+    height: 200px; /* Tinggi gambar seragam */
+    object-fit: cover; /* Pastikan gambar tidak pecah */
+    display: block;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.product-item p {
+    margin: 5px 10px;
+    font-size: 15px;
+    color: #555;
+}
+
+.product-item .price {
+    font-weight: bold;
+    color: #5d3b6f; /* Warna harga sesuai tema */
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.recommendation {
+    flex-shrink: 0; /* Tidak mengecil */
+    width: 250px; /* Lebar kolom rekomendasi */
+    text-align: center;
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    padding-bottom: 15px;
+}
+
+.reko-title {
+    font-weight: bold;
+    background-color: #5d3b6f;
+    color: white;
+    padding: 10px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.reko-item {
+    margin-bottom: 20px;
+    padding: 0 15px;
+}
+
+.reko-item img {
+    width: 100%;
+    height: 150px; /* Tinggi gambar rekomendasi seragam */
+    object-fit: cover;
+    display: block;
+    margin-bottom: 10px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+
+.reko-item p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.reko-item .price {
+    font-weight: bold;
+    color: #d9534f; /* Warna harga merah untuk menarik perhatian */
+    font-size: 15px;
+}
+
+
+/* ======================================= */
+/* 5. FOOTER */
+/* ======================================= */
+.site-footer {
+    background-color: #5d3b6f;
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+    margin-top: 40px;
+    box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+}
+
+.footer-columns {
+    max-width: 960px;
+    margin: 0 auto 20px auto;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 20px;
+    flex-wrap: wrap; /* Agar responsif di layar kecil */
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 180px; /* Lebar minimum agar tidak terlalu sempit */
+    text-align: left;
+    margin: 10px 20px; /* Jarak antar kolom */
+}
+
+.footer-col h4 {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3); /* Garis bawah judul kolom */
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li a,
+.footer-col p {
+    color: #e0e0e0; /* Warna teks lebih terang dari background */
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1.6;
+    transition: color 0.3s ease;
+}
+.footer-col ul li a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.copyright {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    font-size: 13px;
+    color: #e0e0e0;
+}
